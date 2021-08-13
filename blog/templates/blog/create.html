@@ -1,0 +1,32 @@
+{% extends 'main_template.html' %}
+
+{% block navbar %}
+{% include 'blog/navbar_blog.html' %}
+{% endblock navbar %}
+
+{% block header %}
+<br><br><br>
+<div class="container mt-5">
+    <h1>Create Artikel</h1>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="container mt-3 mb-5">
+    <form method="POST">
+        {% csrf_token %}
+        {% for forms in form %}
+        <div class="form-group">
+            {{forms.label}}
+            <br>
+            {{forms}}
+        </div>
+        {% endfor %}
+        <button class="btn btn-primary" type="submit">Kirim</button>
+    </form>
+</div>
+{% endblock content %}
+
+{% block title %}
+{{title}}
+{% endblock title %}
